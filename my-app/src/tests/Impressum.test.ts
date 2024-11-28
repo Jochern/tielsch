@@ -1,28 +1,22 @@
 import { render } from '@testing-library/svelte';
 import '@testing-library/jest-dom';
-import Impressum from '../routes/impressum/+page.svelte'; // Adjust the path to your Impressum component
+import Impressum from '../routes/impressum/+page.svelte';
 
 describe('Impressum Component', () => {
   it('renders all the required company details', () => {
     const { getByText } = render(Impressum);
 
-    // Assert headings and details
     expect(getByText('Impressum')).toBeInTheDocument();
     expect(getByText('Company Name:')).toBeInTheDocument();
     expect(getByText('Your Company Name')).toBeInTheDocument();
-
     expect(getByText('Address:')).toBeInTheDocument();
     expect(getByText('Your Company Address')).toBeInTheDocument();
-
     expect(getByText('Phone:')).toBeInTheDocument();
     expect(getByText('Your Company Phone Number')).toBeInTheDocument();
-
     expect(getByText('Email:')).toBeInTheDocument();
     expect(getByText('Your Company Email')).toBeInTheDocument();
-
     expect(getByText('VAT ID:')).toBeInTheDocument();
     expect(getByText('Your VAT ID')).toBeInTheDocument();
-
     expect(getByText('Managing Directors:')).toBeInTheDocument();
     expect(getByText('Names of Managing Directors')).toBeInTheDocument();
   });
