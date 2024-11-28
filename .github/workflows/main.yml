@@ -22,10 +22,18 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        working-directory: ./my-app 
         run: npm ci
-
-      - name: Run Unit Tests
         working-directory: ./my-app
-        run: npm test
 
+      - name: Run tests and collect coverage
+        run: npm run test:coverage
+        working-directory: ./my-app
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: ./my-app/coverage # Correct path here
+
+      - name: Publish coverage summary
+        run: cat ./my-app/coverage/lcov-report/index.html
