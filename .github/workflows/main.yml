@@ -22,24 +22,18 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        working-directory: ./my-app 
         run: npm ci
+        working-directory: ./my-app
 
-        # Step 4: Run unit tests with coverage
       - name: Run tests and collect coverage
-        working-directory: ./my-app 
         run: npm run test:coverage
+        working-directory: ./my-app
 
-      # Step 5: Upload coverage results as an artifact
       - name: Upload coverage artifact
-        working-directory: ./my-app 
         uses: actions/upload-artifact@v3
         with:
           name: coverage-report
-          path: ./coverage
+          path: ./my-app/coverage # Correct path here
 
-      # Optional: Display test results in the Actions tab
       - name: Publish coverage summary
-        working-directory: ./my-app 
-        run: cat ./coverage/lcov-report/index.html
-
+        run: cat ./my-app/coverage/lcov-report/index.html
