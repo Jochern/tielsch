@@ -22,8 +22,10 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
+        working-directory: ./my-app 
         run: npm ci
 
       - name: Run Unit Tests
+        working-directory: ./my-app
         run: npm test
 
