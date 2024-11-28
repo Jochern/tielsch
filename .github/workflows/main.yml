@@ -29,6 +29,9 @@ jobs:
         run: npm run test:coverage
         working-directory: ./my-app
 
+      - name: Debug coverage directory
+        run: ls -l ./my-app/coverage
+        
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v3
         with:
