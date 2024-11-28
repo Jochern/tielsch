@@ -1,0 +1,11 @@
+name: SvelteKit CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    name
