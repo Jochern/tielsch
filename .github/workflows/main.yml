@@ -36,4 +36,4 @@ jobs:
           path: ./my-app/coverage # Correct path here
 
       - name: Publish coverage summary
-        run: cat ./my-app/coverage/lcov-report/index.html
+        run: cat ./my-app/coverage/index.html
